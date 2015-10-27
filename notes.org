@@ -1,0 +1,49 @@
+* Tomahawk for iOS
+** Resolvers
+- Run in JS env for maximum code reuse
+  - Core Javascript
+** Core Components
+*** Pipeline
+Takes care of looking for results for queries (through [[Resolvers]]).
+
+*** Audio Engine
+Play results (from [[Pipeline]])
+
+** Invoking scripts
+To bridge Swift calls to JavaScript, you need an ID to map the result back to
+its caller.
+
+In the beginning, we had ~executeJS("search(someId, searchText);")~, which had
+the downside of always having to deal with that in resolver code, which is very
+ugly. You always had to remember to pass that back to
+~Tomahawk.addTrackResults()~.
+** Helpful People
+#+BEGIN_QUOTE
+MrMaffen: yurrriq: when it comes to architectural concepts. how the different
+components should fit together... please ping me if you want to talk about that.
+domme: or me
+[7:12pm] domme: or muesli
+#+END_QUOTE
+- jherskowitz <- started work on iOS project
+#+BEGIN_QUOTE
+domme: yurrriq: mr osx in vlc
+#+END_QUOTE
+
+** Design
+See Dropbox.
+
+** Links
+*** Fairly basic example
+https://github.com/tomahawk-player/tomahawk-resolvers/pull/90
+*** Documented example
+https://github.com/tomahawk-player/tomahawk-resolvers/blob/master/examples/javascript/content/contents/code/example.js
+*** The bright future
+https://github.com/tomahawk-player/tomahawk-resolvers/pull/92
+*** ES6-ified Soundcloud Resolver
+https://github.com/tomahawk-player/tomahawk-resolvers/blob/woah/soundcloud/content/contents/code/soundcloud.js
+*** JavaScriptCore
+http://nshipster.com/javascriptcore/
+*** Replete
+https://github.com/mfikes/replete
+*** VLCKit
+https://code.videolan.org/videolan/VLCKit
